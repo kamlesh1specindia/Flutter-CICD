@@ -77,6 +77,6 @@ jobs:
         env:
           SLACK_CHANNEL: flutter-cicd
           SLACK_TITLE: Post title
-          SLACK_USERNAME: nrup.parikh
+          SLACK_USERNAME: kamlesh.vasvani
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
           SLACK_MESSAGE: "New release app available. Please install it."

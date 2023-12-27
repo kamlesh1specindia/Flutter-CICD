@@ -65,7 +65,7 @@ jobs:
          slack_token: ${{secrets.SLACK_BOT_TOKEN}}
          channel_id: ${{secrets.SLACK_CHANNEL_ID}}
          file_path: build/app/outputs/apk/release/app-release.apk
-         initial_comment: 'post by slack-upload-file'
+         initial_comment: 'File uploaded on slack.'
 
       # Slack Integration STEP2  : Sending notification on slack channel
       - name: Slack Notification

@@ -27,6 +27,35 @@ jobs:
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.1
+
+      # Set Up Java JDK
+      - name: Set up JAVA JDK
+        uses: actions/setup-java@v4.0.0
+
+        with:
+          distribution: 'temurin'
+          java-version: '18'
+          cache: 'gradle'
+
+      # Flutter environment for use in GitHub Actions
+      - uses: subosito/flutter-action@v2.12.0
+        with:
+          flutter-version: '3.16.5'
+          channel: 'stable'
+          cache: true
+            
+      # Get dependencies of flutter
+      - run: flutter pub get
+      - run: flutter analyze .
+      - run: flutter build apk --no-tree-shake-icons
+
+      # Uploading the build on GitHub
+      - name: Upload the build
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/app/outputs/apk/release/app-release.apk
+
 
 

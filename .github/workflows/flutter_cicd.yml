@@ -67,3 +67,16 @@ jobs:
          file_path: build/app/outputs/apk/release/app-release.apk
          initial_comment: 'post by slack-upload-file'
 
+      # Slack Integration STEP2  : Sending notification on slack channel
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          status: ${{ job.status }}
+          text: "Build ${{ job.status }} for commit ${{ github.sha }} in branch ${{ github.ref }}."
+
+        env:
+          SLACK_CHANNEL: flutter-cicd
+          SLACK_TITLE: Post title
+          SLACK_USERNAME: nrup.parikh
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_MESSAGE: "New release app available. Please install it."

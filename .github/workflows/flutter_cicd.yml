@@ -52,7 +52,7 @@ jobs:
 
       # Uploading the build on GitHub
       - name: Upload the build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.0.0
         with:
           name: build
           path: build/app/outputs/apk/release/app-release.apk

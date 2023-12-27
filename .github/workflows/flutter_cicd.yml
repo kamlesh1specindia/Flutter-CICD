@@ -54,7 +54,7 @@ jobs:
       - name: Upload the build
         uses: actions/upload-artifact@v4.0.0
         with:
-          name: build
+          name: CI CD Build
           path: build/app/outputs/apk/release/app-release.apk
 
 

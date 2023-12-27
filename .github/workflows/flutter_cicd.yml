@@ -60,7 +60,7 @@ jobs:
             
       # Slack Integration STEP1 : Upload build to Slack
       - name: Upload build to slack
-        uses: MeilCli/slack-upload-file@v3
+        uses: MeilCli/slack-upload-file@v3.0.0
         with:
          slack_token: ${{secrets.SLACK_BOT_TOKEN}}
          channel_id: ${{ secrets.SLACK_CHANNEL_ID }}
